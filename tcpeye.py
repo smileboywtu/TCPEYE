@@ -209,6 +209,7 @@ def eye(host, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(1)
         errcode = sock.connect_ex((host, port))
+        errmsg = ERRORS[errcode]
     except socket.error:
         if socket.errno <= len(ERRORS):
             errcode = socket.errno
